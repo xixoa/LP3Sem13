@@ -1,5 +1,6 @@
 from email.policy import HTTP
 from django.shortcuts import render, HttpResponse, redirect
+from miapp.models import Articulo
 
 # Create your views here.
 layout = """
@@ -74,3 +75,12 @@ def rango2(request, a=0, b=100):
         a+=1
     resultado +="</ul>"
     return HttpResponse(layout + resultado)
+
+def crear_articulo(request):
+    articulo = Articulo (
+        titulo = "Tendencias Covid con Power BI",
+        contenido = "El articulo muestra información de ........",
+        publicado = True
+    )
+    articulo.save()
+    return HttpResponse(f"Articulo Creado: {articulo.titulo} {articulo.contenido}")
