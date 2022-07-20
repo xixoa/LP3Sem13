@@ -1,0 +1,14 @@
+{% extends 'layout.html'%}
+
+{% block title %}
+    {{titulo}}
+{% endblock %}
+   
+{% block content %}
+    {{block.super}}
+    <h1 class="title">Bienvenidos</h1>
+    <h2>{{minombre}}</h2>
+    {% load filters %}
+    {{"Iniciando curso LP3"|saludo|safe}}
+    <h3>Python</h3>
+{% endblock %}
